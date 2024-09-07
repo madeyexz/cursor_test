@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Sweet Home: Buy or Rent?</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Home Sweet Home: Buy or Rent?</h1>
+        <p>
+          Explore the financial implications of renting vs. buying a home. Make
+          an informed decision for your future.
+        </p>
+      </div>
+    </header>
+    <main class="container">
+      <section class="input-panel">
+        <h2>Your Financial Situation</h2>
+        <div class="input-group">
+          <label for="income">Annual Income</label>
+          <div class="input-with-icon">
+            <span class="currency-icon">$</span>
+            <input
+              type="number"
+              id="income"
+              min="0"
+              step="1000"
+              value="50000"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="savings">Savings</label>
+          <div class="input-with-icon">
+            <span class="currency-icon">$</span>
+            <input
+              type="number"
+              id="savings"
+              min="0"
+              step="1000"
+              value="20000"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="years">Years to Stay</label>
+          <input type="number" id="years" min="1" max="30" value="5" />
+        </div>
+      </section>
+
+      <section class="comparison-panel">
+        <div class="comparison-card rent">
+          <h3>Rent</h3>
+          <div class="cost-breakdown">
+            <p>
+              Monthly Rent:
+              <span class="highlight"
+                >$<span id="monthly-rent">1000</span></span
+              >
+            </p>
+            <p>
+              Total Cost over <span id="years-display">5</span> years:
+              <span class="highlight"
+                >$<span id="total-rent-cost">60000</span></span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="comparison-card buy">
+          <h3>Buy</h3>
+          <div class="cost-breakdown">
+            <p>
+              Home Price:
+              <span class="highlight"
+                >$<span id="home-price">200000</span></span
+              >
+            </p>
+            <p>
+              Down Payment:
+              <span class="highlight"
+                >$<span id="down-payment">40000</span></span
+              >
+            </p>
+            <p>
+              Monthly Mortgage:
+              <span class="highlight"
+                >$<span id="monthly-mortgage">763</span></span
+              >
+            </p>
+            <p>
+              Total Cost over <span id="years-display2">5</span> years:
+              <span class="highlight"
+                >$<span id="total-buy-cost">85780</span></span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="recommendation-panel">
+        <h2>Recommendation</h2>
+        <div id="recommendation" class="recommendation-text">
+          <span class="recommendation-icon"></span>
+          <span class="recommendation-content"></span>
+        </div>
+      </section>
+
+      <section class="advanced-options">
+        <h2>Advanced Options</h2>
+        <div class="sliders-grid">
+          <div class="slider-container">
+            <label for="home-price-slider">Home Price</label>
+            <input
+              type="range"
+              id="home-price-slider"
+              min="100000"
+              max="1000000"
+              step="10000"
+              value="200000"
+            />
+            <div class="slider-value">
+              $<span id="home-price-display">200000</span>
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="down-payment-slider">Down Payment</label>
+            <input
+              type="range"
+              id="down-payment-slider"
+              min="3"
+              max="20"
+              value="20"
+            />
+            <div class="slider-value">
+              <span id="down-payment-percent">20</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="interest-rate-slider">Interest Rate</label>
+            <input
+              type="range"
+              id="interest-rate-slider"
+              min="2"
+              max="6"
+              step="0.1"
+              value="3.5"
+            />
+            <div class="slider-value">
+              <span id="interest-rate-display">3.5</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="property-tax-slider">Property Tax Rate</label>
+            <input
+              type="range"
+              id="property-tax-slider"
+              min="0.5"
+              max="2.5"
+              step="0.1"
+              value="1.0"
+            />
+            <div class="slider-value">
+              <span id="property-tax-display">1.0</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="insurance-rate-slider">Annual Insurance Rate</label>
+            <input
+              type="range"
+              id="insurance-rate-slider"
+              min="0.1"
+              max="1.0"
+              step="0.1"
+              value="0.5"
+            />
+            <div class="slider-value">
+              <span id="insurance-rate-display">0.5</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="maintenance-rate-slider">Annual Maintenance Rate</label>
+            <input
+              type="range"
+              id="maintenance-rate-slider"
+              min="0.5"
+              max="2.0"
+              step="0.1"
+              value="1.0"
+            />
+            <div class="slider-value">
+              <span id="maintenance-rate-display">1.0</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="appreciation-rate-slider">Home Appreciation Rate</label>
+            <input
+              type="range"
+              id="appreciation-rate-slider"
+              min="0"
+              max="6"
+              step="0.1"
+              value="3.0"
+            />
+            <div class="slider-value">
+              <span id="appreciation-rate-display">3.0</span>%
+            </div>
+          </div>
+          <div class="slider-container">
+            <label for="monthly-rent-slider">Monthly Rent</label>
+            <input
+              type="range"
+              id="monthly-rent-slider"
+              min="500"
+              max="5000"
+              step="50"
+              value="1000"
+            />
+            <div class="slider-value">
+              $<span id="monthly-rent-display">1000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visualization-panel">
+        <h2>Cost Comparison Over Time</h2>
+        <div class="chart-container">
+          <canvas id="costChart"></canvas>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
